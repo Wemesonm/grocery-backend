@@ -18,13 +18,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
+from core.api.viewsets import GroceryListViewSet
 from categories.api.viewsets import CategoryViewSet
 from items.api.viewsets import ItemViewSet
 from brands.api.viewsets import BrandViewSet
 from units.api.viewsets import UnitViewSet
+from store.api.viewsets import StoreViewSet
 
 
 router = routers.DefaultRouter()
+router.register(r'groceryList', GroceryListViewSet)
+router.register(r'store', StoreViewSet)
 router.register(r'units', UnitViewSet)
 router.register(r'brands', BrandViewSet)
 router.register(r'categories', CategoryViewSet)
